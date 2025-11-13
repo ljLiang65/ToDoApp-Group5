@@ -1884,7 +1884,7 @@ export default function HomePage() {
                       <button
                         key={tag.id}
                         type="button"
-                        onClick={() => toggleTodoTag(editingTodo.id, tag.id)}
+                        onClick={() => toggleTodoTag(editingTodo.id, tag.id, isSelected)}
                         className="px-3 py-1.5 rounded-full text-sm font-medium transition-all"
                         style={{
                           backgroundColor: isSelected ? tag.color : tag.color + '20',
