@@ -1299,14 +1299,17 @@ export default function HomePage() {
                 {completionFilter !== 'all' && <span className="px-2 py-1 bg-white rounded text-sm">Status: {completionFilter}</span>}
                 {dueDateFrom && <span className="px-2 py-1 bg-white rounded text-sm">From: {dueDateFrom}</span>}
                 {dueDateTo && <span className="px-2 py-1 bg-white rounded text-sm">To: {dueDateTo}</span>}
-                {selectedTagFilter && (
-                  <span 
-                    className="px-2 py-1 bg-white rounded text-sm flex items-center gap-1"
-                    style={{ color: selectedTagFilter.color }}
-                  >
-                    Tag: 🏷️ {selectedTagFilter.name}
-                  </span>
-                )}
+                {selectedTagFilter && (() => {
+                  const tag = tags.find(t => t.id === selectedTagFilter);
+                  return tag ? (
+                    <span 
+                      className="px-2 py-1 bg-white rounded text-sm flex items-center gap-1"
+                      style={{ color: tag.color }}
+                    >
+                      Tag: 🏷️ {tag.name}
+                    </span>
+                  ) : null;
+                })()}
               </div>
             </div>
           )}
